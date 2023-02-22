@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TimesheetTaskAdd.Models.WarJob>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.Raw(TempData["InsertMasage"])
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_ProjectId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_StDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_Est)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_Archive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_UpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_UpdatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_ProjectId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_StDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Est)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Archive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_UpdatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Job_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Job_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Job_Id })
+        </td>
+    </tr>
+}
+
+</table>

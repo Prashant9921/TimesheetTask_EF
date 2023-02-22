@@ -1,0 +1,141 @@
+﻿@model IEnumerable<TimesheetTaskAdd.Models.WarDrawing>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_JobId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_StDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_EndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_DeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_employeeid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Est)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_RevEst)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Archive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_NameOld)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Gate1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Gate2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Gate3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Gate4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_UpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_UpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Drw_Status)
+        </th>
+        <th></th>
+    </tr>
+     
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_JobId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_StDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_DeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_employeeid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Est)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_RevEst)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Archive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_NameOld)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Gate1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Gate2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Gate3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Gate4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_UpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_UpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Drw_Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Drw_Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Drw_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Drw_Id })
+        </td>
+    </tr>
+}
+
+</table>

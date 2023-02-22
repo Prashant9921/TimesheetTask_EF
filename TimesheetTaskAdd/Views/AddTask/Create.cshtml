@@ -1,0 +1,250 @@
+﻿@model TimesheetTaskAdd.Models.WarJob
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<script src="~/Content/bootstrap.bundle.js"></script>
+<script src="~/Content/bootstrap.js"></script>
+@Html.Raw(TempData["InsertMasage"])
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    @*<td>Job / Task Number</td>
+        <td>
+            <TextBox ID="TxtJobNo" MaxLength="16" runat="server" Width="110px"></TextBox>
+            <RequiredFieldValidator ID="RFVTxtJobNo" runat="server" ControlToValidate="TxtJobNo"
+                                    ErrorMessage="Job / Task Number not filled/correct.">*</RequiredFieldValidator>
+        </td>*@
+    <div class="form-horizontal" MaxLength="16" runat="server" Width="110px">
+        <h4>WarJob</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_No, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Job_No, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Job_No, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Job_Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Job_Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.Label("Job / Task Discipline (Optional)", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="container">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_StDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.ValidationMessageFor(model => model.Job_StDate, "", new { @class = "text-danger" })
+
+                        @Html.EditorFor(model => model.Job_StDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @*<input type="date" class="form-control" />*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Job_EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Job_EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+
+
+        </div>
+        <div class="container">
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_Est, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Job_Est, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Job_Est, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Job_Archive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @*@Html.EditorFor(model => model.Job_Archive)*@
+                            @Html.ValidationMessageFor(model => model.Job_Archive, "", new { @class = "text-danger" })
+                            @Html.RadioButtonFor(model => model.Job_Archive, "true", new { @checked = "checked" })@Html.Label("Open")
+                            @Html.RadioButtonFor(model => model.Job_Archive, "false", new { disabled = "disabled" })@Html.Label("Close")
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Cancel" onclick="location.href='@Url.Action("Create","AddTask")';" class="btn btn-default" />
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Job_ProjectId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Job_ProjectId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job_ProjectId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+
+
+
+
+
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Job_CreatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Job_CreatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job_CreatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Job_CreatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Job_CreatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job_CreatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Job_UpdatedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Job_UpdatedBy, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job_UpdatedBy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Job_UpdatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Job_UpdatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Job_UpdatedDate, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+    </div>
+
+
+
+
+
+    
+
+
+}
+
+@using (Html.BeginForm("Status", "AddTask"))
+{
+    <label for="html">Show List:</label>
+    @Html.RadioButton("Answer", "All", new { onchange = "this.form.submit();" }) <span>All</span>
+
+    @Html.RadioButton("Answer", "Open", new { onchange = "this.form.submit();" }) <span>Open</span>
+    @Html.RadioButton("Answer", "Close", new { onchange = "this.form.submit();" }) <span>Close</span>
+
+    //<input type="submit" value="Next" />
+
+}
+
+<table class="table table-striped">
+
+
+    <tr>
+        <th>Id</th>
+        <th>Job / Task Number</th>
+        <th>Job / Task Name</th>
+        <th>Start Date </th>
+        <th>End Date </th>
+        <th>Job / Task Estimated Hrs.</th>
+        <th>Job / Job / Allocated Hrs.</th>
+        <th>Job / Task Additional Allocated Hrs.</th>
+        <th>Job / Task Estimate</th>
+        <th>Job / Task Consumed Hrs.</th>
+        <th>Task % Completion.</th>
+        <th>Job / Task Status</th>
+        <th>Add / View</th>
+
+    </tr>
+    @foreach (var item in ViewBag.warjobslist)
+    {
+        <tr>
+            <td>@item.Job_Id</td>
+            <td>@item.Job_No</td>
+            <td>@item.Job_Name</td>
+            <td>@item.Job_StDate</td>
+            <td>@item.Job_EndDate</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@item.Job_Est</td>
+            <td></td>
+            <td></td>
+            <td>@item.Job_Archive</td>
+            <td>@Html.ActionLink("Deliverable / Sub-Task", "Index", "Home")</td>
+
+        </tr>
+
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

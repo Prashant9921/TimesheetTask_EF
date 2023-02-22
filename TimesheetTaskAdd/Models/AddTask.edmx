@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="neilsofttsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WarDrawings">
+          <Key>
+            <PropertyRef Name="Drw_Id" />
+          </Key>
+          <Property Name="Drw_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Drw_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Drw_JobId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Drw_StDate" Type="datetime" />
+          <Property Name="Drw_EndDate" Type="datetime" />
+          <Property Name="Drw_DeliveryDate" Type="datetime" />
+          <Property Name="Drw_employeeid" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Drw_Est" Type="float" />
+          <Property Name="Drw_RevEst" Type="float" />
+          <Property Name="Drw_Archive" Type="bit" />
+          <Property Name="Drw_NameOld" Type="varchar" MaxLength="50" />
+          <Property Name="Drw_Gate1" Type="tinyint" />
+          <Property Name="Drw_Gate2" Type="tinyint" />
+          <Property Name="Drw_Gate3" Type="tinyint" />
+          <Property Name="Drw_Gate4" Type="tinyint" />
+          <Property Name="Drw_CreatedBy" Type="int" />
+          <Property Name="Drw_CreatedDate" Type="datetime" />
+          <Property Name="Drw_UpdatedBy" Type="int" />
+          <Property Name="Drw_UpdatedDate" Type="datetime" />
+          <Property Name="Drw_Status" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="WarJobs">
+          <Key>
+            <PropertyRef Name="Job_Id" />
+          </Key>
+          <Property Name="Job_Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Job_No" Type="varchar" MaxLength="100" />
+          <Property Name="Job_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Job_ProjectId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Job_StDate" Type="datetime" />
+          <Property Name="Job_EndDate" Type="datetime" />
+          <Property Name="Job_Est" Type="float" />
+          <Property Name="Job_Archive" Type="bit" />
+          <Property Name="Job_CreatedBy" Type="int" />
+          <Property Name="Job_CreatedDate" Type="datetime" />
+          <Property Name="Job_UpdatedBy" Type="int" />
+          <Property Name="Job_UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="neilsofttsModelStoreContainer">
+          <EntitySet Name="WarDrawings" EntityType="Self.WarDrawings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WarJobs" EntityType="Self.WarJobs" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="neilsofttsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="neilsofttsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="WarJobs" EntityType="neilsofttsModel.WarJob" />
+          <EntitySet Name="WarDrawings" EntityType="neilsofttsModel.WarDrawing" />
+        </EntityContainer>
+        <EntityType Name="WarJob">
+          <Key>
+            <PropertyRef Name="Job_Id" />
+          </Key>
+          <Property Name="Job_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Job_No" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Job_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Job_ProjectId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Job_StDate" Type="DateTime" Precision="3" />
+          <Property Name="Job_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Job_Est" Type="Double" />
+          <Property Name="Job_Archive" Type="Boolean" />
+          <Property Name="Job_CreatedBy" Type="Int32" />
+          <Property Name="Job_CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Job_UpdatedBy" Type="Int32" />
+          <Property Name="Job_UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="WarDrawing">
+          <Key>
+            <PropertyRef Name="Drw_Id" />
+          </Key>
+          <Property Name="Drw_Id" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Drw_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Drw_JobId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Drw_StDate" Type="DateTime" Precision="3" />
+          <Property Name="Drw_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Drw_DeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="Drw_employeeid" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Drw_Est" Type="Double" />
+          <Property Name="Drw_RevEst" Type="Double" />
+          <Property Name="Drw_Archive" Type="Boolean" />
+          <Property Name="Drw_NameOld" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Drw_Gate1" Type="Byte" />
+          <Property Name="Drw_Gate2" Type="Byte" />
+          <Property Name="Drw_Gate3" Type="Byte" />
+          <Property Name="Drw_Gate4" Type="Byte" />
+          <Property Name="Drw_CreatedBy" Type="Int32" />
+          <Property Name="Drw_CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Drw_UpdatedBy" Type="Int32" />
+          <Property Name="Drw_UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Drw_Status" Type="Byte" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="neilsofttsModelStoreContainer" CdmEntityContainer="neilsofttsEntities">
+          <EntitySetMapping Name="WarJobs">
+            <EntityTypeMapping TypeName="neilsofttsModel.WarJob">
+              <MappingFragment StoreEntitySet="WarJobs">
+                <ScalarProperty Name="Job_UpdatedDate" ColumnName="Job_UpdatedDate" />
+                <ScalarProperty Name="Job_UpdatedBy" ColumnName="Job_UpdatedBy" />
+                <ScalarProperty Name="Job_CreatedDate" ColumnName="Job_CreatedDate" />
+                <ScalarProperty Name="Job_CreatedBy" ColumnName="Job_CreatedBy" />
+                <ScalarProperty Name="Job_Archive" ColumnName="Job_Archive" />
+                <ScalarProperty Name="Job_Est" ColumnName="Job_Est" />
+                <ScalarProperty Name="Job_EndDate" ColumnName="Job_EndDate" />
+                <ScalarProperty Name="Job_StDate" ColumnName="Job_StDate" />
+                <ScalarProperty Name="Job_ProjectId" ColumnName="Job_ProjectId" />
+                <ScalarProperty Name="Job_Name" ColumnName="Job_Name" />
+                <ScalarProperty Name="Job_No" ColumnName="Job_No" />
+                <ScalarProperty Name="Job_Id" ColumnName="Job_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WarDrawings">
+            <EntityTypeMapping TypeName="neilsofttsModel.WarDrawing">
+              <MappingFragment StoreEntitySet="WarDrawings">
+                <ScalarProperty Name="Drw_Status" ColumnName="Drw_Status" />
+                <ScalarProperty Name="Drw_UpdatedDate" ColumnName="Drw_UpdatedDate" />
+                <ScalarProperty Name="Drw_UpdatedBy" ColumnName="Drw_UpdatedBy" />
+                <ScalarProperty Name="Drw_CreatedDate" ColumnName="Drw_CreatedDate" />
+                <ScalarProperty Name="Drw_CreatedBy" ColumnName="Drw_CreatedBy" />
+                <ScalarProperty Name="Drw_Gate4" ColumnName="Drw_Gate4" />
+                <ScalarProperty Name="Drw_Gate3" ColumnName="Drw_Gate3" />
+                <ScalarProperty Name="Drw_Gate2" ColumnName="Drw_Gate2" />
+                <ScalarProperty Name="Drw_Gate1" ColumnName="Drw_Gate1" />
+                <ScalarProperty Name="Drw_NameOld" ColumnName="Drw_NameOld" />
+                <ScalarProperty Name="Drw_Archive" ColumnName="Drw_Archive" />
+                <ScalarProperty Name="Drw_RevEst" ColumnName="Drw_RevEst" />
+                <ScalarProperty Name="Drw_Est" ColumnName="Drw_Est" />
+                <ScalarProperty Name="Drw_employeeid" ColumnName="Drw_employeeid" />
+                <ScalarProperty Name="Drw_DeliveryDate" ColumnName="Drw_DeliveryDate" />
+                <ScalarProperty Name="Drw_EndDate" ColumnName="Drw_EndDate" />
+                <ScalarProperty Name="Drw_StDate" ColumnName="Drw_StDate" />
+                <ScalarProperty Name="Drw_JobId" ColumnName="Drw_JobId" />
+                <ScalarProperty Name="Drw_Name" ColumnName="Drw_Name" />
+                <ScalarProperty Name="Drw_Id" ColumnName="Drw_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
